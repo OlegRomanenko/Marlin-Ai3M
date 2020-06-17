@@ -81,7 +81,7 @@
 // User-specified version info of this build to display in [Pronterface, etc] terminal window during
 // startup. Implementation of an idea by Prof Braino to inform user that any changes made to this
 // build by the user have been successfully uploaded into firmware.
-#define STRING_CONFIG_H_AUTHOR "oleg@romanenko.ro (1.0.4 BLTouch, no filament sensor)" // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "oleg@romanenko.ro (1.0.5 BLTouch)" // Who made the changes.
 #define SHOW_BOOTSCREEN
 #define STRING_SPLASH_LINE1 SHORT_BUILD_VERSION   // will be shown during bootup in line 1
 #define STRING_SPLASH_LINE2 CUSTOM_BUILD_VERSION  // will be shown during bootup in line 2
@@ -617,7 +617,7 @@
 #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 414.78 }
 
 /**
- * Default Max Feed Rate (mm/s)
+ * Default Max Fee dRate (mm/s)
  * Override with M203
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
  */
@@ -794,8 +794,8 @@
  *    (0,0)
  */
 #define X_PROBE_OFFSET_FROM_EXTRUDER -1  // X offset: -left  +right  [of the nozzle]
-#define Y_PROBE_OFFSET_FROM_EXTRUDER -24  // Y offset: -front +behind [the nozzle]
-#define Z_PROBE_OFFSET_FROM_EXTRUDER 0   // Z offset: -below +above  [the nozzle]
+#define Y_PROBE_OFFSET_FROM_EXTRUDER -30  // Y offset: -front +behind [the nozzle]
+#define Z_PROBE_OFFSET_FROM_EXTRUDER -1.7   // Z offset: -below +above  [the nozzle]
 
 // Certain types of probes need to stay away from edges
 #define MIN_PROBE_EDGE 10
@@ -812,7 +812,7 @@
 // The number of probes to perform at each point.
 //   Set to 2 for a fast/slow probe, using the second probe result.
 //   Set to 3 or more for slow probes, averaging the results.
-//#define MULTIPLE_PROBING 2
+#define MULTIPLE_PROBING 2
 
 /**
  * Z probes require clearance when deploying, stowing, and moving between
@@ -904,7 +904,7 @@
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
-#define Y_MAX_POS 226
+#define Y_MAX_POS Y_BED_SIZE
 #define Z_MAX_POS 205
 
 /**
@@ -1028,8 +1028,8 @@
   #if ENABLED(G26_MESH_VALIDATION)
     #define MESH_TEST_NOZZLE_SIZE    0.4  // (mm) Diameter of primary nozzle.
     #define MESH_TEST_LAYER_HEIGHT   0.2  // (mm) Default layer height for the G26 Mesh Validation Tool.
-    #define MESH_TEST_HOTEND_TEMP  200.0  // (°C) Default nozzle temperature for the G26 Mesh Validation Tool.
-    #define MESH_TEST_BED_TEMP      60.0  // (°C) Default bed temperature for the G26 Mesh Validation Tool.
+    #define MESH_TEST_HOTEND_TEMP  220.0  // (°C) Default nozzle temperature for the G26 Mesh Validation Tool.
+    #define MESH_TEST_BED_TEMP      70.0  // (°C) Default bed temperature for the G26 Mesh Validation Tool.
   #endif
 
 #endif
@@ -1042,9 +1042,9 @@
 
   // Set the boundaries for probing (where the probe can reach).
   #define LEFT_PROBE_BED_POSITION 10
-  #define RIGHT_PROBE_BED_POSITION 190
+  #define RIGHT_PROBE_BED_POSITION 200
   #define FRONT_PROBE_BED_POSITION 10
-  #define BACK_PROBE_BED_POSITION 202
+  #define BACK_PROBE_BED_POSITION 185
 
   // The Z probe minimum outer margin (to validate G29 parameters).
   #define MIN_PROBE_EDGE 10
